@@ -3,7 +3,7 @@ package offer;
 public class 机器人的运动范围 {
     public static void main(String[] args) {
         Solution solution = new 机器人的运动范围().new Solution();
-        System.out.println(solution.movingCount(3,1, 0));
+        System.out.println(solution.movingCount(3,1, 4));
     }
 
     class Solution {
