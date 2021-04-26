@@ -8,6 +8,7 @@ public class 二叉搜索树与双向链表 {
         Solution solution = new 二叉搜索树与双向链表().new Solution();
         Node node = solution.treeToDoublyList(new Node(4, new Node(2, new Node(1), new Node(3)), new Node(5)));
         System.out.println();
+
     }
 
     class Solution {

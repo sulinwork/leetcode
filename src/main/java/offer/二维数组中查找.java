@@ -10,6 +10,7 @@ public class 二维数组中查找 {
                 {10, 13, 14, 17, 24},
                 {18, 21, 23, 26, 30}}, 5));
         System.out.println(solution.findNumberIn2DArray(new int[][]{}, 0));
+
     }
 }
 
