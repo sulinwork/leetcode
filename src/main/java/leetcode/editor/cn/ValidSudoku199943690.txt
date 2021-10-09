@@ -1,0 +1,24 @@
+    class Solution {
+        public boolean isValidSudoku(char[][] board) {
+            int[][] hen = new int[board.length][9];
+            int[][] su = new int[board[0].length][9];
+            for (int i = 0; i < board.length; i++) {
+                for (int j = 0; j < board[0].length; j++) {
+                    if (board[i][j] != '.') {
+                        int num = board[i][j] - '0' - 1;
+                        if (hen[i][num] == 0 && su[j][num] == 0) {
+                            hen[i][num] = 1;
+                            su[j][num] = 1;
+                        } else return false;
+                    }
+                }
+            }
+            return true;
+        }
+    }
+
+//total_testcases:507
+//total_correct:473
+//input_formatted:[[".",".",".",".","5",".",".","1","."],[".","4",".","3",".",".",".",".","."],[".",".",".",".",".","3",".",".","1"],["8",".",".",".",".",".",".","2","."],[".",".","2",".","7",".",".",".","."],[".","1","5",".",".",".",".",".","."],[".",".",".",".",".","2",".",".","."],[".","2",".","9",".",".",".",".","."],[".",".","4",".",".",".",".",".","."]]
+//expected_output:false
+//code_output:true

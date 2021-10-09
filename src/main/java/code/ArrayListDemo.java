@@ -11,16 +11,13 @@ import java.util.concurrent.TimeUnit;
 
 public class ArrayListDemo {
     public static void main(String[] args) throws InterruptedException {
-//        Object after = new Object();
-//        System.out.println(ClassLayout.parseInstance(after).toPrintable());
-//        synchronized (after) {
-//            System.out.println(ClassLayout.parseInstance(after).toPrintable());
-//        }
-//        System.out.println(ClassLayout.parseInstance(after).toPrintable());
-
-        LocalDateTime localDateTime = LocalDateTime.of(LocalDate.now(), LocalTime.MIN);
-        Long dayTime5 = localDateTime.toInstant(ZoneOffset.ofHours(8)).toEpochMilli();
-        System.out.println(dayTime5);
+        Thread.sleep(5000);
+        Object after = new Object();
+        System.out.println(ClassLayout.parseInstance(after).toPrintable());
+        synchronized (after) {
+            System.out.println(ClassLayout.parseInstance(after).toPrintable());
+        }
+        System.out.println(ClassLayout.parseInstance(after).toPrintable());
     }
 
 }

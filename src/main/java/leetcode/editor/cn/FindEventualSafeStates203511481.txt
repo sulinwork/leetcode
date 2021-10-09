@@ -1,0 +1,39 @@
+    class Solution {
+        public List<Integer> eventualSafeNodes(int[][] graph) {
+            LinkedList<Integer> res = new LinkedList<>();
+            Map<Integer, List<Integer>> ref = new HashMap<>();
+            int[] outDeep = new int[graph.length];
+            for (int i = 0; i < graph.length; i++) {
+                for (int j = 0; j < graph[i].length; j++) {
+                    List<Integer> orDefault = ref.getOrDefault(graph[i][j], new ArrayList<>());
+                    orDefault.add(i);
+                    ref.put(graph[i][j], orDefault);
+                }
+            }
+            Queue<Integer> queue = new LinkedList<>();
+            for (int i = 0; i < graph.length; i++) {
+                outDeep[i] = graph[i].length;
+                if (outDeep[i] == 0) queue.offer(i);
+            }
+            while (!queue.isEmpty()) {
+                Integer poll = queue.poll();
+                if (outDeep[poll] == 0) {
+                    res.add(poll);
+                }
+                //找到他的上一个
+                List<Integer> integers = ref.getOrDefault(poll, new ArrayList<>());
+                if (!integers.isEmpty()) {
+                    for (Integer integer : integers) {
+                        outDeep[integer] = outDeep[integer] - 1;
+                        if (outDeep[integer] == 0)
+                            queue.offer(integer);
+                    }
+                }
+            }
+            Collections.sort(res);
+            return res;
+        }
+    }
+
+//runtime:40 ms
+//memory:48 MB

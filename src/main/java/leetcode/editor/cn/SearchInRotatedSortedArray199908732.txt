@@ -1,0 +1,24 @@
+    class Solution {
+        public int search(int[] nums, int target) {
+            return search(nums, target, 0, nums.length - 1);
+        }
+
+        public int search(int[] nums, int target, int start, int end) {
+            if (start == end) return -1;
+            int mid = (start + end) / 2;
+            //[start,mid]
+            //[mid+1,end]
+            if (nums[mid] == target) return mid;
+            //判断左区间是否有序
+            if (nums[start] < nums[mid] && nums[mid] > target && nums[start] < target) {
+                return search(nums, target, start, mid);
+            } else return search(nums, target, mid + 1, end);
+        }
+    }
+
+//total_testcases:195
+//total_correct:132
+//input_formatted:[4,5,6,7,0,1,2]
+0
+//expected_output:4
+//code_output:-1

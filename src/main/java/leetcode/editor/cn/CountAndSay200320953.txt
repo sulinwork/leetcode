@@ -1,0 +1,32 @@
+    class Solution {
+        public String countAndSay(int n) {
+            String result = "1";
+            StringBuffer sb = new StringBuffer();
+            if (n == 1) return result;
+            for (int i = 1; i < n; i++) {
+                System.out.println(result);
+                sb.setLength(0);
+                int index = 0;
+                int count = 1;
+                while (index < result.length()) {
+                    if (index == result.length() - 1) {
+                        sb.append(count);
+                        sb.append(result.charAt(index));
+                        break;
+                    }
+                    if (result.charAt(index) != result.charAt(index + 1)) {
+                        sb.append(count);
+                        sb.append(result.charAt(index));
+                        count = 0;
+                    }
+                    count++;
+                    index++;
+                }
+                result = sb.toString();
+            }
+            return result;
+        }
+    }
+
+//runtime:11 ms
+//memory:35.6 MB
